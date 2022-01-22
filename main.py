@@ -81,9 +81,13 @@ def save_txt_header_to_target(header_lines, sgy, header_type):
             if count == 2:
                 line = replace_line(line, sgy.line_name)
 
-            if count == 3:
+            if count == 3 and header_type == 'TIME':
                 line = line.strip().replace('2 MS', str(sgy.s_interval) + ' MS')
                 line = line.strip().replace('3996 MS', str(sgy.s_len) + ' MS')
+
+            if count == 3 and header_type == 'DEPTH':
+                line = line.strip().replace('2 MS', str(sgy.s_interval) + ' M')
+                line = line.strip().replace('3996 MS', str(sgy.s_len) + ' M')
 
             if count == 7 and header_type == 'DEPTH':
                 line = replace_datum(line, sgy.datum)
