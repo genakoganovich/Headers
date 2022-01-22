@@ -3,7 +3,7 @@ from os.path import isfile, join
 import struct
 
 HEADERS_FILE = 'headers.txt'
-DIR_PATH = 'c:/data/input/'
+DIR_PATH = 'd:/data/Depth/gSpace/004_pstm/add_pstm_save/'
 
 
 class Sgy:
@@ -49,7 +49,7 @@ class Sgy:
 def replace_line(line, line_name):
     left = line[0:36].strip().replace('LINE: DS-0244', 'LINE: ' + str(line_name)).ljust(36)
     right = line[36:-1].strip()
-    return left + right
+    return (left + right).upper()
 
 
 def read_txt_header(header_file_name):
@@ -69,7 +69,7 @@ def save_txt_header_to_target(header_lines, sgy):
                 line = line.strip().replace('2 MS', str(sgy.s_interval) + ' MS')
                 line = line.strip().replace('3996 MS', str(sgy.s_len) + ' MS')
 
-            f.write(line.strip().ljust(80).encode('cp850'))
+            f.write(line.strip().ljust(80).encode('cp500'))
 
 
 def create_file_list(path):
