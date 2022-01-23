@@ -2,10 +2,22 @@ from os import listdir
 from os.path import isfile, join
 import struct
 
-HEADERS_FILE_TIME = 'headers_time.txt'
-HEADERS_FILE_DEPTH = 'headers_depth.txt'
-# DIR_PATH = 'd:/data/Depth/gSpace/004_pstm/add_pstm_save/'
-DIR_PATH = 'd:/data/Depth/gSpace/001_psdm/datum_test/'
+HEADERS_FILE_PSTM = 'DS-0244_MF-PSTM_on_Topography.txt'
+HEADERS_FILE_PSDM = 'DS-0244_MF-PSDM_on_datum.txt'
+HEADERS_FILE_PSDM_VEL = 'DS-0244_MF-PSDM_velocity_on_datum.txt'
+HEADERS_FILE_NMO_STACK = 'DS-0244_NMO_Stack_on_Topography.txt'
+HEADERS_FILE_POSTSTM = 'DS-0244_PostSTM_on_Topography.txt'
+HEADERS_FILE_STACKING_VELOCITY = 'DS-0244_Stacking_Velocity_on_Topography.txt'
+HEADERS_FILE_GEOM_GATHERS = 'DS-0244_Geom_Gathers_on_Topography.txt'
+
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/MF PSDM/psdm/West/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/West/NMO Stack/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/South/PostSTM/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/West/PostSTM/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/South/Stacking Velocity/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/West/Stacking Velocity/'
+# DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/South/GeomGathers/'
+DIR_PATH = 'd:/data/_FTP Incoming/Israel Projects/_Priority_Lines/_Deliverables to GII/StandardProcessing/West/GeomGathers/'
 
 
 class Sgy:
@@ -106,5 +118,9 @@ def import_txt_header(header_lines, path, header_type):
 
 if __name__ == '__main__':
     # import_txt_header(read_txt_header(HEADERS_FILE_TIME), DIR_PATH, 'TIME')
-    import_txt_header(read_txt_header(HEADERS_FILE_DEPTH), DIR_PATH, 'DEPTH')
-
+    # import_txt_header(read_txt_header(HEADERS_FILE_DEPTH), DIR_PATH, 'DEPTH')
+    # import_txt_header(read_txt_header(HEADERS_FILE_DEPTH_VEL), DIR_PATH, 'DEPTH')
+    # import_txt_header(read_txt_header(HEADERS_FILE_NMO_STACK), DIR_PATH, 'TIME')
+    # import_txt_header(read_txt_header(HEADERS_FILE_POSTSTM), DIR_PATH, 'TIME')
+    # import_txt_header(read_txt_header(HEADERS_FILE_STACKING_VELOCITY), DIR_PATH, 'TIME')
+    import_txt_header(read_txt_header(HEADERS_FILE_GEOM_GATHERS), DIR_PATH, 'TIME')
